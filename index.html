@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Никита — сайты</title>
+<style>
+:root{--bg:#0e0e0f;--ink:#f2f1ec;--muted:#8e8e8b;--line:#2a2a2a;--accent:#6f86ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 16px}
+main{max-width:640px;width:100%}
+h1{font-size:clamp(30px,6vw,44px);letter-spacing:-.03em;margin:0 0 8px;line-height:1.1}
+p{color:var(--muted);margin:0 0 32px}
+a.work{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:20px 0;border-top:1px solid var(--line);color:var(--ink);text-decoration:none}
+a.work:last-of-type{border-bottom:1px solid var(--line)}
+a.work b{font-size:22px;font-weight:600;letter-spacing:-.02em}
+a.work span{color:var(--muted);font-size:14px;text-align:right}
+a.work:hover b{color:var(--accent)}
+footer{margin-top:28px;color:var(--muted);font-size:14px}
+footer a{color:var(--ink)}
+</style>
+</head>
+<body>
+<main>
+  <h1>Сайты, которые продают</h1>
+  <p>Дизайн и разработка под ключ: от первого экрана до запуска. Примеры работ:</p>
+  <a class="work" href="etazh42/"><b>Этаж 42</b><span>бар на 42 этаже · бронь стола на плане зала</span></a>
+  <a class="work" href="skorohod/"><b>Скороход</b><span>магазин обуви · каталог и подбор размера</span></a>
+  <footer>Никита · <a href="https://t.me/nprds">Telegram @nprds</a> · <a href="https://nikitos.space/">nikitos.space</a></footer>
+</main>
+</body>
+</html>
