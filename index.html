@@ -207,7 +207,7 @@ footer a{display:inline-block;padding:10px 0;margin:-10px 0}
 </div>
 <script>
 // окошко в заголовке: кадры из моих проектов сменяются по очереди
-const imgs=["etazh42_04","skorohod_03","etazh42_06","skorohod_04","etazh42_01","skorohod_15","etazh42_09","skorohod_09","etazh42_07","skorohod_17"];
+const imgs=[...Array(10)].map((_,i)=>"hero_"+String(i+1).padStart(2,"0"));
 const tile=document.getElementById("tile");
 tile.innerHTML=imgs.map((n,i)=>`<img src="tiles/${n}.webp" alt="" ${i?'loading="lazy"':'class="on"'}>`).join("");
 const frames=tile.querySelectorAll("img");let k=0;
