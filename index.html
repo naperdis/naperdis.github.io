@@ -207,9 +207,10 @@ footer a{display:inline-block;padding:10px 0;margin:-10px 0}
 </div>
 <script>
 // окошко в заголовке: кадры из моих проектов сменяются по очереди
-const imgs=[...Array(10)].map((_,i)=>"hero_"+String(i+1).padStart(2,"0"));
+// ниши, кому делаю сайты, вперемешку с кадрами из моих проектов
+const imgs=["gen_01_coffee","hero_01","gen_02_boot","gen_03_helmet","hero_10","gen_04_tooth","gen_05_razor","hero_02","gen_06_chair","gen_07_sauna","hero_06","gen_08_fabric"];
 const tile=document.getElementById("tile");
-tile.innerHTML=imgs.map((n,i)=>`<img src="tiles/${n}.webp" alt="" ${i?'loading="lazy"':'class="on"'}>`).join("");
+tile.innerHTML=imgs.map((n,i)=>`<img src="tiles/${n}.webp" alt="" ${i?'':'class="on"'}>`).join("");
 const frames=tile.querySelectorAll("img");let k=0;
 if(!matchMedia("(prefers-reduced-motion:reduce)").matches)
   setInterval(()=>{if(document.hidden)return;frames[k].classList.remove("on");k=(k+1)%frames.length;frames[k].classList.add("on")},1000);
