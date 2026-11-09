@@ -616,3 +616,42 @@ body.has-buybar .proto{bottom:96px}
 .cart-count{background:var(--olive-deep);color:#fff}
 /* мяч круглее цветка — текст внутри карточки получает чуть больше места */
 .fcard{padding:52px}
+
+/* ===== v1.4: фото без обрезки — окно повторяет пропорции снимка, точки фокуса ===== */
+/* баннеры: снимок целиком */
+.banner{align-items:stretch}
+.banner .pic{min-height:0!important}
+.banner:has(img[src*="band"]){grid-template-columns:1fr 1.3fr}
+.banner:has(img[src*="band"]) .pic{aspect-ratio:3/2}
+.banner.rev:has(img[src*="mat"]){grid-template-columns:460px 1fr}
+.banner:has(img[src*="mat"]) .pic{aspect-ratio:1091/1400}
+.banner:has(img[src*="blocks"]),.banner:has(img[src*="pilates-ball"]){grid-template-columns:1fr 440px}
+.banner:has(img[src*="blocks"]) .pic,.banner:has(img[src*="pilates-ball"]) .pic{aspect-ratio:970/1400}
+/* первый экран: горизонтальный кадр в горизонтальном окне */
+.hero{grid-template-columns:1fr 1.15fr;align-items:center;padding-bottom:40px}
+.hero-text{padding-top:24px}
+.hero-photo{height:auto!important;aspect-ratio:3/2}
+.hero-media .sticker{left:-74px;bottom:40px}
+/* точки фокуса: обрезается фон, а не главное */
+img[src*="pose"]{object-position:56% 62%}
+img[src*="band"]{object-position:28% 55%}
+img[src*="mat"]{object-position:50% 28%}
+img[src*="dumbbell"]{object-position:42% 52%}
+img[src*="socks"]{object-position:50% 64%}
+img[src*="pilates-ball"]{object-position:50% 48%}
+img[src*="blocks"]{object-position:56% 50%}
+img[src*="massage-balls"]{object-position:50% 56%}
+@media (max-width:1240px) and (min-width:861px){
+ .hero{grid-template-columns:1fr 1fr}
+ .banner.rev:has(img[src*="mat"]){grid-template-columns:360px 1fr}
+ .banner:has(img[src*="blocks"]),.banner:has(img[src*="pilates-ball"]){grid-template-columns:1fr 340px}
+}
+@media (max-width:860px){
+ .banner,.banner.rev,.banner:has(img){grid-template-columns:1fr!important}
+ .banner .pic{max-height:440px}
+ .hero-photo{aspect-ratio:4/3;height:auto!important;min-height:0}
+}
+@media (max-width:860px){
+ .banner .pic{max-height:none;width:100%}
+ .banner:has(img[src*="mat"]) .pic,.banner:has(img[src*="blocks"]) .pic,.banner:has(img[src*="pilates-ball"]) .pic{aspect-ratio:4/5}
+}
