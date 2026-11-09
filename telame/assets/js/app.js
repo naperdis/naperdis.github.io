@@ -80,7 +80,7 @@ function renderCart() {
   if (window.onCartChange) window.onCartChange();
 }
 function openCart(open = true) { $('.drawer')?.classList.toggle('open', open); $('.overlay')?.classList.toggle('open', open); document.documentElement.style.overflow = open ? 'hidden' : ''; if (open) setTimeout(() => $('.drawer .close-cart')?.focus(), 300); }
-let tt; function toast(t) { const el = $('.toast'); if (!el) return; $('span', el).textContent = t; el.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => el.classList.remove('show'), 2400); }
+let tt; function toast(t) { const el = $('.toast'); if (!el) return; $('span:not(.fl)', el).textContent = t; el.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => el.classList.remove('show'), 2400); }
 
 /* ---------- появление при прокрутке ---------- */
 const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -122,6 +122,7 @@ addEventListener('keydown', e => {
 const hdr = $('.header'); addEventListener('scroll', () => hdr?.classList.toggle('scrolled', scrollY > 8), { passive: true });
 const page = document.body.dataset.page; $$(`.nav a[data-nav="${page}"]`).forEach(a => a.classList.add('active'));
 if (store.get('telame-proto', 0)) $('.proto')?.remove();
+else setTimeout(() => $('.proto')?.classList.add('gone'), 7000);
 
 /* ---------- страницы ---------- */
 const params = new URLSearchParams(location.search);
@@ -215,6 +216,6 @@ if (tabs) {
 function favCount() { $$('.fav-count').forEach(c => { c.textContent = favs.size; c.dataset.n = favs.size; }); }
 if ($('.buy-bar')) document.body.classList.add('has-buybar');
 stagger(); renderCart(); favCount();
-const go = () => { document.documentElement.classList.add('loaded'); observe(); };
+const go = () => { document.documentElement.classList.add('loaded'); observe(); setTimeout(sweep, 400); setTimeout(sweep, 1800); };
 (document.fonts?.ready || Promise.resolve()).then(go); setTimeout(go, 900);
 })();

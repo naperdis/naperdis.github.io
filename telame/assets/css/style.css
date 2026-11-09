@@ -474,3 +474,75 @@ body.has-buybar .proto{bottom:96px}
 }
 @media (max-width:860px){.header .burger{justify-self:start;width:44px}.header .tools{gap:22px}}
 @media (max-width:860px){.page-head .sec-head{flex-direction:column;align-items:flex-start;gap:12px}}
+
+/* ===== v1.1: читаемость и аккуратность (контраст ≥ 4.5:1 для текста) ===== */
+:root{--olive-ink:#6E7026}
+/* мелкий оливковый текст на креме — тёмный оттенок той же оливы */
+.label{color:var(--olive-ink)}
+/* на оливе и розовом — коричневый текст (4.7–7:1) вместо белого (2.5–3.2:1) */
+.btn-olive,.btn-pink{color:var(--brown)}
+.add{color:var(--brown)}.add.done{color:#fff}
+.chip.on{color:var(--brown)}
+.cart-count{color:var(--brown)}
+.sticker{color:var(--brown)}.sticker b{color:var(--brown)}
+.fcard,.f-olive,.f-pink{color:var(--brown)!important}
+.fcard p{font-size:14px;line-height:1.4}
+.banner.rev{color:var(--brown)}.banner.rev .lead{color:var(--brown);opacity:.85}
+.banner.rev .label{color:var(--brown)!important;opacity:.8}.banner.rev .acc.pinkl{color:var(--brown)}
+.stepc.last{color:var(--brown)}.stepc.last i{color:var(--brown)}.stepc.last p{color:var(--brown);opacity:.85}
+.formbox{color:var(--brown)}.formbox .field{color:var(--brown)}.formbox .field span{opacity:.75}.formbox .acc.pinkl{color:var(--brown)}
+.formbox .contacts-list a{color:var(--brown)}.formbox .ok-msg{background:rgba(255,255,255,.45)}
+/* фото в баннерах не растягивают блок по своей высоте */
+.banner .pic{position:relative}.banner .pic img{position:absolute;inset:0}
+/* чипы каталога — в одну строку с прокруткой, без висящих хвостов */
+.chips.scroll{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 calc(-1*var(--pad));padding:0 var(--pad) 4px}
+.chips.scroll::-webkit-scrollbar{display:none}.chips.scroll .chip{white-space:nowrap;flex:none}
+/* цены и счётчики без «прыжков» цифр */
+.price,.pprice b,.trow span,.cart-count,#c-sum{font-variant-numeric:tabular-nums}
+/* заголовки без висячих слов */
+.h1,.h2,.h3,.fcard h3{text-wrap:balance}.lead,.item p,.stepc p{text-wrap:pretty}
+/* края фото не сливаются с кремовым фоном */
+.pic::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(45,37,30,.06);pointer-events:none}
+.card .pic,.hero-photo,.collage .pic,.gal-main,.cat .pic{position:relative}
+
+/* ===== v1.1b: правки по проверке ===== */
+/* текст на оливе — без прозрачности (коричневый на оливе 4.7:1) */
+.banner.rev .lead,.banner.rev .label,.stepc.last p,.formbox .field span,.formbox p{opacity:1!important}
+/* серые подписи, крошки, подсказки — плотнее (≈5.9:1 на креме) */
+.muted,.crumbs,.radio .rt small,.field small,.card-info .muted{opacity:.82}
+.input::placeholder{color:#7A6F64;opacity:1}
+/* сертификат и розовый баннер «О нас» */
+.cert .cv .small{color:var(--brown);font-weight:500}
+.b-pink .acc{color:var(--brown)}
+/* обводка фото не должна обрамлять списки корзины и сводки */
+.citem .pic,.sline .pic{position:relative}
+/* studios: высокий первый экран только на десктопе */
+.txt-tall{padding-top:88px!important;padding-bottom:88px!important}
+/* каталог на десктопе: две ровные строки чипов на всю ширину, без обрезки */
+@media (min-width:861px){
+  .chips.scroll{flex-wrap:wrap;overflow:visible;margin:0;padding:0}
+  .chips.scroll .chip{flex:1 1 auto;text-align:center}
+}
+@media (max-width:860px){
+  .txt-tall{padding:28px 20px!important}
+  .logo svg{width:118px}
+}
+
+/* ===== v1.1c ===== */
+/* каталог на десктопе: ровная сетка чипов 6×2 (на узком десктопе 4×3) */
+@media (min-width:861px){
+  .chips.scroll{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+  .chips.scroll .chip{flex:none;text-align:center}
+}
+@media (min-width:861px) and (max-width:1240px){.chips.scroll{grid-template-columns:repeat(4,1fr)}}
+/* мелкие подписи и старые цены — читаемее */
+.facts span{opacity:.82}
+.pprice s{opacity:.75}
+#cert-form .acc[style*="pink"]{color:var(--brown)!important}
+/* плашка прототипа исчезает сама, чтобы не закрывать кнопки */
+.proto{transition:opacity .6s ease,visibility .6s}.proto.gone{opacity:0;visibility:hidden}
+@media (max-width:860px){
+  .page-head .sec-head{align-items:flex-start!important}
+  .page-head .sec-head p{max-width:none!important}
+  .header .logo{display:grid;align-items:center;min-height:44px}
+}
