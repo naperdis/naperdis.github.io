@@ -604,3 +604,15 @@ body.has-buybar .proto{bottom:96px}
  .proto{top:64px;bottom:auto;left:8px;right:auto}
 }
 @media (max-width:860px){.hero-photo{height:min(44svh,125vw)}.hero-text>.label{display:none}}
+
+/* ===== v1.3: знак «массажный мяч» (форма A) ===== */
+/* стикер: розовый мяч, белый текст крупнее и плотнее */
+.sticker svg{fill:var(--pink)}.sticker,.sticker b{color:#fff}
+.sticker b{font:600 italic 25px/1.02 var(--serif);letter-spacing:.005em}
+@media (max-width:860px){.sticker b{font-size:19px}}
+/* без тёмного текста на ярко-розовом: карточка «Сертификат» — светло-розовая, кнопки и счётчик — олива с белым */
+.f-pink svg{fill:var(--pink-l)}.f-pink{color:var(--brown)!important}
+.btn-pink{background:var(--olive-deep);color:#fff}
+.cart-count{background:var(--olive-deep);color:#fff}
+/* мяч круглее цветка — текст внутри карточки получает чуть больше места */
+.fcard{padding:52px}
