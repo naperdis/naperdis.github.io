@@ -546,3 +546,61 @@ body.has-buybar .proto{bottom:96px}
   .page-head .sec-head p{max-width:none!important}
   .header .logo{display:grid;align-items:center;min-height:44px}
 }
+
+/* ===== v1.2: «глубокая олива» — зелёные поверхности с текстом тёмным оттенком той же оливы, текст светлый (белый 5.4:1) ===== */
+:root{--olive-deep:#6E7026}
+.announce{background:var(--olive-deep);color:var(--cream)}
+.btn-olive,.add,.chip.on{background:var(--olive-deep);color:#fff;border-color:var(--olive-deep)}
+.add.done{background:var(--brown)}
+.tag.ok{background:var(--olive-deep);color:#fff}
+/* баннеры */
+.banner:not(.rev):not(.b-pink){background:var(--olive-deep);color:var(--cream)}
+.banner:not(.rev):not(.b-pink) .lead,.banner:not(.rev):not(.b-pink) p{color:var(--cream)!important;opacity:.9}
+.banner:not(.rev):not(.b-pink) .acc{color:var(--pink-l)!important}
+.banner:not(.rev):not(.b-pink) .label{color:var(--olive-l)!important}
+.banner:not(.rev):not(.b-pink) .btn-dark{background:var(--cream);color:var(--brown)}
+.banner.rev{background:var(--olive-deep);color:var(--cream)}
+.banner.rev .lead{color:var(--cream)!important;opacity:.9!important}.banner.rev .label{color:var(--olive-l)!important;opacity:1!important}.banner.rev .acc.pinkl{color:var(--pink-l)}
+/* цветы-карточки: зелёные — глубокой оливой с белым текстом */
+.f-olive svg,.f-olivel svg{fill:var(--olive-deep)}
+.f-olive,.f-olivel{color:#fff!important}
+/* «Для студий»: 5-й шаг и форма */
+.stepc.last{background:var(--olive-deep);color:#fff}.stepc.last i{color:var(--pink-l)}.stepc.last p{color:#fff;opacity:.9!important}
+.formbox{background:var(--olive-deep);color:var(--cream)}.formbox .field,.formbox .contacts-list a{color:var(--cream)}
+.formbox .field span{opacity:.85!important}.formbox p{opacity:.9!important}.formbox .acc.pinkl{color:var(--pink-l)}
+.formbox .ok-msg{background:rgba(255,255,255,.15)}
+/* сертификат */
+.cert{background:var(--olive-deep)}.cert .cv .small{color:var(--cream)}
+
+/* ===== v1.2: телефон — первый экран «фото сверху» ===== */
+@media (max-width:860px){
+ .hero{display:flex;flex-direction:column;gap:0;padding-top:12px}
+ .hero-media{order:-1}.hero-photo{height:auto;aspect-ratio:4/5}
+ .hero-media .sticker{left:auto;right:12px;top:12px;bottom:auto}
+ .hero-text{padding-top:24px;gap:16px}
+ .hero-text .lead{display:none}
+ .hero-btns{flex-direction:row;align-items:center;gap:20px}.hero-btns .btn-olive{flex:1}
+ .hero-btns .btn-line{width:auto!important;border:0;padding:0;background:none;text-decoration:underline;text-underline-offset:4px}
+ .hero-btns .btn-line::after{display:none}.hero-btns .btn-line:hover{color:var(--brown)}
+ .facts{margin-top:8px;padding-top:16px;border-top:1px solid var(--line)}
+ .sec-head .link{white-space:nowrap}
+ /* цветы на телефоне — значок + текст на креме, текст всегда тёмный */
+ .fcard,.f-olive,.f-olivel,.f-pink{color:var(--brown)!important}
+}
+
+/* ===== v1.2b: по проверке ===== */
+/* светлый текст на глубокой оливе — без прозрачности (4.6:1) */
+.banner:not(.rev):not(.b-pink) .lead,.banner:not(.rev):not(.b-pink) p,.banner.rev .lead,.formbox p,.formbox .field span,.stepc.last p{opacity:1!important}
+.banner:not(.rev):not(.b-pink) .label,.banner.rev .label{color:var(--cream)!important}
+/* мелкие цифры и старая цена */
+.facts span{opacity:1;color:var(--brown2)}
+.pprice s{opacity:1;color:var(--brown2)}
+@media (max-width:860px){
+ /* фото первого экрана не съедает экран: кнопка видна сразу и на 360 px */
+ .hero-photo{aspect-ratio:auto;height:min(50svh,125vw);min-height:300px}
+ .hero-text{padding-top:20px;gap:14px}
+ .hero-btns .btn-line{min-height:44px;display:inline-flex;align-items:center}
+ /* плашка прототипа на телефоне — сверху, под шапкой, не над кнопками */
+ .proto{top:64px;bottom:auto;left:8px;right:auto}
+}
+@media (max-width:860px){.hero-photo{height:min(44svh,125vw)}.hero-text>.label{display:none}}
